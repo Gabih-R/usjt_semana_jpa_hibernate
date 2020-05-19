@@ -9,7 +9,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		if (((Object) request.getSession()).getAttribute("usuarioLogado") == null) {
+		if (request.getSession().getAttribute("usuarioLogado") == null) {
 			response.sendRedirect("login");
 		}
 		return true;

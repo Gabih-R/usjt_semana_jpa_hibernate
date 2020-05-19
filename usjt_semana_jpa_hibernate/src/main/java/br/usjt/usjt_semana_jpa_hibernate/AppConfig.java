@@ -8,9 +8,10 @@ import br.usjt.usjt_semana_jpa_hibernate.interceptor.LoginInterceptor;
 
 @Configuration
 public class AppConfig implements WebMvcConfigurer{
+	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		((Object) registry.addInterceptor(new LoginInterceptor()))
-		.addPathPatterns("/**")
-		.excludePathPatterns("/login","/","/logar");
+		registry.addInterceptor(new LoginInterceptor())
+				.addPathPatterns("/**")
+				.excludePathPatterns("/login","/","/logar");
 	}
 }
